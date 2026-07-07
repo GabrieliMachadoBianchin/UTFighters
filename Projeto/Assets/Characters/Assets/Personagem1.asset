@@ -19,7 +19,7 @@ MonoBehaviour:
   specialSprite: {fileID: 7105400011372903176, guid: c243bb220c5bc37498368d34857722d2, type: 3}
   maxHealth: 100
   moveSpeed: 70
-  jumpForce: 50
+  jumpForce: 90
   punchDamage: 10
   kickDamage: 15
   specialDamage: 30

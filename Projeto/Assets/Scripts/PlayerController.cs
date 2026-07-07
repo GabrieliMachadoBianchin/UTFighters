@@ -18,13 +18,21 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
+    private PlayerCombat combat;
+    private CharacterVisual characterVisual;
 
     private bool isGrounded;
+    private bool facingRight = true;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        combat = GetComponent<PlayerCombat>();
+        characterVisual = GetComponent<CharacterVisual>();
+
+        // Garante que a sprite comece coerente com a direção inicial.
+        ApplyFlip();
     }
 
     void Update()
@@ -45,10 +53,11 @@ public class PlayerController : MonoBehaviour
 
         rb.linearVelocity = new Vector2(move * moveSpeed, rb.linearVelocity.y);
 
-        if (move > 0)
-            spriteRenderer.flipX = false;
-        else if (move < 0)
-            spriteRenderer.flipX = true;
+        // Espelha a sprite conforme a seta pressionada.
+        if (move > 0f && !facingRight)
+            Flip(true);
+        else if (move < 0f && facingRight)
+            Flip(false);
     }
 
     void Jump()
@@ -61,6 +70,32 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
+    }
+
+    void Flip(bool faceRight)
+    {
+        facingRight = faceRight;
+        ApplyFlip();
+    }
+
+    void ApplyFlip()
+    {
+        // O espelhamento visual é delegado ao CharacterVisual, que conhece a
+        // orientação original de cada sprite (idle, soco, chute, poder) e
+        // mantém o golpe sempre virado para o lado que o personagem encara.
+        if (characterVisual != null)
+            characterVisual.SetFacing(facingRight);
+        else if (spriteRenderer != null)
+            spriteRenderer.flipX = !facingRight; // fallback simples
+
+        // Espelha o AttackPoint para o golpe continuar saindo à frente
+        // do personagem, mesmo depois de virar.
+        if (combat != null && combat.attackPoint != null)
+        {
+            Vector3 pos = combat.attackPoint.localPosition;
+            pos.x = Mathf.Abs(pos.x) * (facingRight ? 1f : -1f);
+            combat.attackPoint.localPosition = pos;
         }
     }
 
