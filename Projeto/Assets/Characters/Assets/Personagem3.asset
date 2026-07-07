@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a1af14f2c399074cbcd6448c4e126d5, type: 3}
+  m_Name: Personagem3
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterData
+  characterName: "Tr\xEAs"
+  idleSprite: {fileID: 3129417137955524418, guid: 3d072ef64d581f34e81fc5fd1853d15c, type: 3}
+  punchSprite: {fileID: 8752111499946014599, guid: 9dfc9d3da0942714f81e716827ceaa26, type: 3}
+  kickSprite: {fileID: 4055042276312561467, guid: 74e628d20bab34747993dea754e32a9d, type: 3}
+  specialSprite: {fileID: 7105400011372903176, guid: a2294d741f8819040b37aa379ad9292a, type: 3}
+  maxHealth: 100
+  moveSpeed: 70
+  jumpForce: 50
+  punchDamage: 10
+  kickDamage: 15
+  specialDamage: 30

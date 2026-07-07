@@ -7,7 +7,7 @@ public class MenuManager : MonoBehaviour
 
     public void Jogar()
     {
-        SceneManager.LoadScene("Jogo");
+        SceneManager.LoadScene("SelectCharacter");
     }
 
     public void AbrirExplicacao()
