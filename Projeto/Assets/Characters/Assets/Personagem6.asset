@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a1af14f2c399074cbcd6448c4e126d5, type: 3}
+  m_Name: Personagem6
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterData
+  characterName: Seis
+  idleSprite: {fileID: 4113829005332862926, guid: 80d85cf1abbd0c2408cc8b96bf39e7d9, type: 3}
+  punchSprite: {fileID: -5099292496197868168, guid: 840f390aa5eb5444e862df3919079cb2, type: 3}
+  kickSprite: {fileID: -2966200626249415253, guid: ff7f7de1f273a6c44ae436806ea73d8d, type: 3}
+  specialSprite: {fileID: -1540426309290004842, guid: ee28a8b65c2b10f4284435d2670cd492, type: 3}
+  maxHealth: 100
+  moveSpeed: 5
+  jumpForce: 8
+  punchDamage: 10
+  kickDamage: 15
+  specialDamage: 30
